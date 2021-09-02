@@ -10,7 +10,7 @@ get_header('home');
             <div class="home-header">
                 
                 <a class="navbar-brand" href="<?php echo home_url(); ?>">
-                    <img class="home-header__logo-img" src="<?php echo get_template_directory_uri()?>/library/images/logo.png">
+                    <img class="home-header__logo-img" src="<?php echo get_template_directory_uri()?>/library/images/logo-white.svg">
                 </a>
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="<?php esc_html_e( 'Toggle Navigation', 'theme-textdomain' ); ?>">
@@ -70,6 +70,7 @@ get_header('home');
         <div class="about-other-top">
         </div>
         <div class="about-other-middle">
+            <img class="" src="<?php echo get_template_directory_uri()?>/library/images/see-report-card.svg">
             <p>Interested in learning more about forced arbitration and why companies elect this practice?</p>
         </div>
         <div class="about-other-bottom">
@@ -82,6 +83,7 @@ get_header('home');
         <div class="about-other-top">
         </div>
         <div class="about-other-middle">
+            <img class="" src="<?php echo get_template_directory_uri()?>/library/images/get-accredited.svg">
             <p>Feel free to Contact Us privately with any comments, concerns, or questions!</p>
         </div>
         <div class="about-other-bottom">

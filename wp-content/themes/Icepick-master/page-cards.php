@@ -10,7 +10,7 @@ get_header('home');
             <div class="home-header">
                 
                 <a class="navbar-brand" href="<?php echo home_url(); ?>">
-                    <img class="home-header__logo-img" src="<?php echo get_template_directory_uri()?>/library/images/logo.png">
+                    <img class="home-header__logo-img" src="<?php echo get_template_directory_uri()?>/library/images/logo-white.svg">
                 </a>
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="<?php esc_html_e( 'Toggle Navigation', 'theme-textdomain' ); ?>">

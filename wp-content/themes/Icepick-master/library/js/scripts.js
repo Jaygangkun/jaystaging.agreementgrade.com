@@ -15,4 +15,15 @@ jQuery(document).ready(function($) {
 		$('body').toggleClass('nav-open');
 	});
 	
+
+	// companies page
+	$(document).on('click', '.companies-alpha-link', function() {
+		let group = $(this).attr('data-group');
+		let target = $('.companies-group[data-group="' + group + '"]');
+		if($(target).length > 0) {
+			$('html, body').animate({
+				scrollTop: $(target).offset().top - 50
+			}, 100, 'linear');
+		}
+	})
 }); /* end of as page load scripts */

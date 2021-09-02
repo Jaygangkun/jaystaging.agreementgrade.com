@@ -3,7 +3,7 @@
 				<div class="container">
 					<div class="footer-top">
 						<div class="footer-logo-wrap">
-							<img class="footer-logo__img" src="<?php echo get_template_directory_uri()?>/library/images/logo.png">
+							<img class="footer-logo__img" src="<?php echo get_template_directory_uri()?>/library/images/logo-black.svg">
 						</div>
 						<div class="footer-menu-wrap">
 							<div class="footer-menu-col">

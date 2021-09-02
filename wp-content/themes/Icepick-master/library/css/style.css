@@ -528,7 +528,7 @@ h4 {
 }
 
 p {
-  font-family: "Courier Regular";
+  font-family: 'Courier Prime', monospace;
   font-weight: 100;
   font-size: 18px;
   line-height: 28px;
@@ -537,7 +537,7 @@ p {
 
 p a {
   font-weight: bold;
-  font-family: "Courier Regular";
+  font-family: 'Courier Prime', monospace;
 }
 
 .color-white {
@@ -990,6 +990,11 @@ select {
   line-height: 28px;
   color: #000000;
   font-weight: bold;
+  font-family: "Arial Black";
+}
+
+.companies-alpha-links-title {
+  margin-right: 15px;
 }
 
 .companies-alpha-link {
@@ -1017,6 +1022,7 @@ select {
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
+  font-family: 'Courier Prime', monospace;
 }
 
 .company-link:hover {
@@ -1098,6 +1104,21 @@ select {
 
 .about-other-middle {
   padding: 0px 50px;
+  position: relative;
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+}
+
+.about-other-middle p {
+  margin-bottom: 0px;
+}
+
+.about-other-middle img {
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .about-other-link-wrap {
@@ -1133,7 +1154,8 @@ select {
 }
 
 .report-cards-wrap h3 {
-  font-family: 'Courier Bold';
+  font-family: 'Courier Prime', monospace;
+  font-weight: bold;
   font-size: 23px;
   line-height: 27px;
   letter-spacing: -0.2px;
@@ -1142,7 +1164,7 @@ select {
 
 .report-cards-link {
   margin-top: 60px;
-  font-family: 'Courier Regular';
+  font-family: 'Courier Prime', monospace;
   font-size: 14px;
   line-height: 16px;
   color: #000000;
@@ -1250,7 +1272,7 @@ select {
 }
 
 .report-card-accordian-table-body {
-  font-family: 'Courier Regular';
+  font-family: 'Courier Prime', monospace;
   font-size: 16px;
   line-height: 18px;
   color: #000000;
@@ -1266,4 +1288,133 @@ select {
 
 .report-card-accordian-table-col-content {
   text-align: center;
+}
+
+.header {
+  background: #4285F4;
+}
+
+.header .home-header .header-menus {
+  border-top: 1px solid #ffffff;
+}
+
+.header .home-header {
+  align-items: center;
+}
+
+.single-company__title {
+  margin-top: 0px;
+  border-bottom: 1px solid #979797;
+  padding-bottom: 15px;
+  margin-bottom: 40px; 
+}
+
+.single-company-info {
+  margin-top: 100px;
+}
+
+.single-company-info-row {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 45px;
+}
+
+.single-company-info-col {
+  width: 33.33%;
+  margin-bottom: 30px;
+}
+
+.single-company-info__title {
+  color: #000000;
+  font-family: "Arial Regular";
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.single-company-info__value {
+  color: #000000;
+  font-family: "Arial Black";
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: 28px;
+}
+
+.single-company-description {
+  color: #000000;
+  font-family: 'Courier Prime', monospace;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 28px;
+  margin-bottom: 35px;
+}
+
+.single-company-info-block {
+  margin-bottom: 60px;
+}
+
+.single-company-info-block__title {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #979797;
+  text-transform: uppercase;
+}
+
+.single-company-info-block-wrap {
+  color: #4285F4;
+  font-family: 'Courier Prime', monospace;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.single-company-logo-wrap {
+  border: 1px solid #979797;
+  background-color: #FFFFFF;
+  box-shadow: 0 40px 30px -30px rgba(0,0,0,0.1);
+  margin-bottom: 70px;
+  width: 100%;
+  position: relative;
+  height: 0px;
+  padding-top: 60%;
+}
+
+.single-company-logo__img {
+  position: absolute;
+  left: 50%;
+  max-width: calc(100% - 40px);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-height: calc(100% - 40px);
+}
+
+.single-company-link-wrap {
+  margin-bottom: 10px;
+}
+
+.single-company-link {
+  text-decoration: none;
+  font-family: 'Courier Prime', monospace;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.single-company-file-wrap {
+  margin-bottom: 10px;
+}
+
+.single-company-grade-badget {
+  border-radius: 4px;
+  width: 50px;
+  text-align: center;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.single-company-grade-badget.grade-f {
+  color: #ffffff;
+  background: #FF7D7E
 }

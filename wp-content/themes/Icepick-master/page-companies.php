@@ -10,7 +10,7 @@ get_header('home');
             <div class="home-header">
                 
                 <a class="navbar-brand" href="<?php echo home_url(); ?>">
-                    <img class="home-header__logo-img" src="<?php echo get_template_directory_uri()?>/library/images/logo.png">
+                    <img class="home-header__logo-img" src="<?php echo get_template_directory_uri()?>/library/images/logo-white.svg">
                 </a>
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="<?php esc_html_e( 'Toggle Navigation', 'theme-textdomain' ); ?>">
@@ -47,78 +47,78 @@ get_header('home');
 </section>
 <section class="companies-list">
     <div class="container">
+        <?php
+        $alphas = range('A', 'Z');
+        ?>
         <div class="companies-alpha-links">
             <span class="companies-alpha-links-title">JUMP TO:</span>
-            <span class="companies-alpha-link">A</span>
-            <span class="companies-alpha-link">B</span>
-            <span class="companies-alpha-link">C</span>
-            <span class="companies-alpha-link">D</span>
-            <span class="companies-alpha-link">E</span>
+            <?php
+            foreach($alphas as $alpha) {
+                ?>
+                <span class="companies-alpha-link" data-group="<?php echo $alpha?>"><?php echo $alpha?></span>
+                <?php
+            }
+            ?>
         </div>
-        <div class="companies-group">
-            <h2 class="companies-group-alpha">A</h2>
-            <div class="companies-name-list">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="company-link-wrap"><a class="company-link">A-Mark Precious Metals</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Abbott Laboratories</a></div>
-                        <div class="company-link-wrap"><a class="company-link">AbbVie</a></div>
-                        <div class="company-link-wrap"><a class="company-link">ABM Industries</a></div>
-                        <div class="company-link-wrap"><a class="company-link">About Us</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Accenture</a></div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="company-link-wrap"><a class="company-link">Alaska Air Group</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Albertsons Cos.</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Alcoa</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Alleghany</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Alliance Data Systems</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Allianz Life Insurance Company</a></div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="company-link-wrap"><a class="company-link">American Family Insurance</a></div>
-                        <div class="company-link-wrap"><a class="company-link">American Fidelity Assurance</a></div>
-                        <div class="company-link-wrap"><a class="company-link">American Financial Group</a></div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="company-link-wrap"><a class="company-link">Archer Daniels Midland</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Arconic</a></div>
-                    </div>
+        <?php
+        
+        $companies = get_posts(array(
+			'post_type' => 'company',
+			'numberposts' => -1,
+            'orderby' => 'title',
+            'order' => 'ASC'
+		));
+        $prev_alpha_index = 0;
+        $cur_group_count = 0;
+        $group_tag_start = false;
+        foreach($companies as $company){
+            $title = get_the_title($company->ID);
+            $link = get_permalink($company->ID);
+
+            $first_letter = substr(strtoupper($title), 0, 1);
+            if($alphas[$prev_alpha_index] == $first_letter) {
+
+                if($cur_group_count == 0) {
+                    $group_tag_start = true;
+                    ?>
+                    <div class="companies-group" data-group="<?php echo $first_letter?>">
+                        <h2 class="companies-group-alpha"><?php echo $first_letter?></h2>
+                        <div class="companies-name-list">
+                            <div class="row">
+                    <?php
+                }
+                ?>
+                <div class="col-lg-4">
+                    <div class="company-link-wrap"><a class="company-link" href="<?php echo $link?>"><?php echo $title?></a></div>
                 </div>
-            </div>
-        </div>
-        <div class="companies-group">
-            <h2 class="companies-group-alpha">B</h2>
-            <div class="companies-name-list">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="company-link-wrap"><a class="company-link">Baird</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Baker Danelson</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Ball</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Bank of America Corp.</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Bank of New York Mellon</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Baptist Health Souuth Florida</a></div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="company-link-wrap"><a class="company-link">BayCare Health System</a></div>
-                        <div class="company-link-wrap"><a class="company-link">BB&T Corp.</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Becton Dickinson</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Bed Bath & Beyond</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Berkshire Hathaway</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Berry Global Group</a></div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="company-link-wrap"><a class="company-link">Biogen</a></div>
-                        <div class="company-link-wrap"><a class="company-link">BlackRock</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Blackstone Group</a></div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="company-link-wrap"><a class="company-link">Bristol-Myers Squibb</a></div>
-                        <div class="company-link-wrap"><a class="company-link">Build-A-Bear Workshop</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <?php
+                $cur_group_count ++;
+            }
+            else {
+                $cur_group_count = 0;
+                $prev_alpha_index++;
+
+                if($group_tag_start){
+                    ?>
+                            </div> <!-- .row -->
+                        </div> <!-- .companies-name-list -->
+                    </div> <!-- .companies-group -->
+                    <?php
+                    $group_tag_start = false;
+                }
+            }
+            ?>
+            <?php
+        }
+        if($group_tag_start){
+            ?>
+                    </div> <!-- .row -->
+                </div> <!-- .companies-name-list -->
+            </div> <!-- .companies-group -->
+            <?php
+            $group_tag_start = false;
+        }
+        ?>
     </div>
 </section>
 <?php

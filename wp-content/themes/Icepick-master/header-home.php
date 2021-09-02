@@ -9,7 +9,8 @@
 		<meta charset="utf-8">
 
 		<title><?php wp_title(''); ?></title>
-
+		
+		<link rel="icon" href="<?php echo get_template_directory_uri()?>/library/images/favicon.svg">
 		<!-- Google Chrome Frame for IE -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -23,6 +24,9 @@
 	    <!-- Bootstrap CSS -->
 	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 	    
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
 		<link rel="stylesheet" href="https://use.typekit.net/jbd3bjg.css">
 
