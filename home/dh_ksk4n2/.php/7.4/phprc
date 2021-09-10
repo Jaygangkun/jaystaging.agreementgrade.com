@@ -1,0 +1,5 @@
+; {{{ The following lines were automatically added by DreamHost
+zend_extension=opcache.so
+memory_limit=500M
+max_input_vars = 2000
+; }}} That's all from DreamHost
