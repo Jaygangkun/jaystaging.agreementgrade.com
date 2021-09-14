@@ -61,13 +61,14 @@ get_header('home');
             ?>
         </div>
         <?php
-        
+
         $companies = get_posts(array(
 			'post_type' => 'company',
 			'numberposts' => -1,
             'orderby' => 'title',
             'order' => 'ASC'
 		));
+
         $prev_alpha_index = 0;
         $cur_group_count = 0;
         $group_tag_start = false;
@@ -76,6 +77,7 @@ get_header('home');
             $link = get_permalink($company->ID);
 
             $first_letter = substr(strtoupper($title), 0, 1);
+            
             if($alphas[$prev_alpha_index] == $first_letter) {
 
                 if($cur_group_count == 0) {

@@ -962,7 +962,7 @@ select {
   letter-spacing: 0.24px;
   text-transform: uppercase;
   padding: 10px 30px;
-  font-family: 'Arial Bold';
+  font-family: 'Arial Black';
 }
 
 .company-hero-badge-wrap {
@@ -1184,7 +1184,7 @@ select {
 }
 
 .report-card-accordian-filter {
-  font-family: "Arial Bold";
+  font-family: "Arial Black";
   font-size: 16px;
   line-height: 21px;
   letter-spacing: 0.32px;
@@ -1210,10 +1210,13 @@ select {
   display: flex;
   justify-content: space-between;
   color: #757575;
-  font-family: 'Arial Regular';
   font-size: 16px;
   line-height: 20px;
   letter-spacing: 0.32px;
+}
+
+.report-card-accordian-table-head {
+  font-family: 'Arial Regular';
 }
 
 .report-card-accordian-table-head .report-card-accordian-table-row {
@@ -1414,7 +1417,33 @@ select {
   text-transform: uppercase;
 }
 
+.single-company-grade-badget.grade-a {
+  color: #ffffff;
+  background: #4285F4
+}
+
+.single-company-grade-badget.grade-b {
+  color: #ffffff;
+  background: #5FC18E
+}
+
+.single-company-grade-badget.grade-c {
+  color: #ffffff;
+  background: #FAE76F
+}
+
+.single-company-grade-badget.grade-d {
+  color: #ffffff;
+  background: #FCB44F
+}
+
+.single-company-grade-badget.grade-e {
+  color: #ffffff;
+  background: #FF7D7E
+}
+
 .single-company-grade-badget.grade-f {
   color: #ffffff;
   background: #FF7D7E
 }
+

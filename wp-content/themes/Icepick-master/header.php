@@ -10,7 +10,6 @@
 
 		<title><?php wp_title(''); ?></title>
 
-		<link rel="icon" href="<?php echo get_template_directory_uri()?>/library/images/favicon.svg">
 		<!-- Google Chrome Frame for IE -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
