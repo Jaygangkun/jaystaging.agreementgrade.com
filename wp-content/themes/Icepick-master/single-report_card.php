@@ -47,21 +47,23 @@
             <span class="report-card-accordian-filter-link">A</span>
             <span class="report-card-accordian-filter-link">B</span>
             <span class="report-card-accordian-filter-link">C</span>
+            <span class="report-card-accordian-filter-link">D</span>
+            <span class="report-card-accordian-filter-link">F</span>
         </div>
         <div class="report-card-accordian-table">
             <div class="report-card-accordian-table-head">
                 <div class="report-card-accordian-table-row">
-                    <div class="report-card-accordian-table-col">
-                        <span>Fortune 500 Rank</span> <i class="fa fa-caret-down"></i>
+                    <div class="report-card-accordian-table-col col-sortable" sort-field="rank" sort-direction="asc">
+                        <span>Fortune 500 Rank</span> <i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i>
                     </div>
-                    <div class="report-card-accordian-table-col">
-                        <span>Company</span> <i class="fa fa-caret-down"></i>
+                    <div class="report-card-accordian-table-col col-sortable" sort-field="company_name" sort-direction="">
+                        <span>Company</span> <i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i>
                     </div>
-                    <div class="report-card-accordian-table-col">
-                        <span>Agreement Grade</span> <i class="fa fa-caret-down"></i>
+                    <div class="report-card-accordian-table-col col-sortable" sort-field="agreement_grade" sort-direction="">
+                        <span>Agreement Grade</span> <i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i>
                     </div>
-                    <div class="report-card-accordian-table-col">
-                        <span>Forced Arbiration</span> <i class="fa fa-caret-down"></i>
+                    <div class="report-card-accordian-table-col col-sortable" sort-field="forced_arbitration" sort-direction="">
+                        <span>Forced Arbiration</span> <i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i>
                     </div>
                     <div class="report-card-accordian-table-col">
                         <span>CEO</span>
@@ -69,47 +71,51 @@
                     <div class="report-card-accordian-table-col">
                         <span>Glassdoor Rating</span>
                     </div>
-                    <div class="report-card-accordian-table-col">
-                    </div>
                 </div>
             </div>
-            <div class="report-card-accordian-table-body">
+            <div class="report-card-accordian-table-body" id="report_card_list">
+                <?php
+                $rank = 1;
+                $count = 1;
+                global $g_report_card_500_per_page;
+                ?>
                 <?php if( have_rows('companies') ): while ( have_rows('companies') ) : the_row(); ?>
                     <?php
-                    $company = get_sub_field('company');
+                    $company_id = get_sub_field('company');
                     ?>
                     <div class="report-card-accordian-table-row">
                     
                         <div class="report-card-accordian-table-col">
-                            <div class="report-card-accordian-table-col-content"><?php the_sub_field('fortune_500_rank')?></div>
+                            <div class="report-card-accordian-table-col-content"><?php echo $rank;?></div>
                         </div>
                         <div class="report-card-accordian-table-col">
-                            <div class="report-card-accordian-table-col-content"><?php echo get_the_title($company->ID)?></div>
+                            <div class="report-card-accordian-table-col-content"><a href="<?php echo get_permalink($company_id)?>"><?php echo get_the_title($company_id)?></a></div>
+                        </div>
+                        <div class="report-card-accordian-table-col col-agreement_grade">
+                            <div class="report-card-accordian-table-col-content"><?php echo get_field('agreement_grade', $company_id)?></div>
+                        </div>
+                        <div class="report-card-accordian-table-col col-forced_arbitration">
+                            <div class="report-card-accordian-table-col-content"><?php echo get_field('forced_arbitration', $company_id)?></div>
                         </div>
                         <div class="report-card-accordian-table-col">
-                            <div class="report-card-accordian-table-col-content"><?php echo get_field('agreement_grade', $company->ID)?></div>
+                            <div class="report-card-accordian-table-col-content"><?php echo get_field('ceo', $company_id)?></div>
                         </div>
                         <div class="report-card-accordian-table-col">
-                            <div class="report-card-accordian-table-col-content"><?php the_sub_field('forced_arbitration')?></div>
-                        </div>
-                        <div class="report-card-accordian-table-col">
-                            <div class="report-card-accordian-table-col-content">Doug Mcmillon</div>
-                            <div class="report-card-accordian-table-col-content-extend">63/100 Owler Rating</div>
-                        </div>
-                        <div class="report-card-accordian-table-col">
-                            <div class="report-card-accordian-table-col-content">3.2</div>
-                        </div>
-                        <div class="report-card-accordian-table-col">
-                            <div class="report-card-accordian-table-col-content-extend">
-                                <i class="fa fa-arrow-right"></i>
-                            </div>
+                            <div class="report-card-accordian-table-col-content"><?php echo get_field('glassdoor_rating', $company_id)?></div>
                         </div>
                     </div>
+                    <?php $rank ++ ?>
+                    <?php
+                    if($count >= $g_report_card_500_per_page) {
+                        break;
+                    }
+                    $count ++;
+                    ?>
                 <?php endwhile; endif; ?>
             </div>
             <div class="report-card-accordian-table-foot">
                 <div class="report-card-accoridan-load-btn-wrap">
-                    <span class="custom-btn custom-btn-blue">see more</span>
+                    <span class="custom-btn custom-btn-blue load-report-cards-btn" post-id="<?php echo get_the_ID()?>" pagination-index="0">see more</span>
                 </div>
             </div>
         </div>

@@ -34,7 +34,7 @@ get_header('home');
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 mx-auto">
-                        <h1 class="color-white text-center">We grade companies on the fairness of their <span class="highlight">employee agreements</span>.</h1>
+                        <h1 class="color-white text-center">We grade companies on the fairness of their <div class="highlight"><span>employee agreements</span></div>.</h1>
                         <p class="color-white text-center">We are the nation's leader in employment agreement advocacy. We hold corporations responsible by creating a transparent, level playing field for all employees.</p>
                     </div>
                 </div>
@@ -46,99 +46,93 @@ get_header('home');
             </div>
             <div class="home-sub-content-table-wrap">
                 <div class="home-hero-table">
+                    <style>
+                        .home-hero-fortune-table-content {
+                            display: none;
+                        }
+
+                        .home-hero-fortune-table-content[fortune-index="0"] {
+                            display: block;
+                        }
+                    </style>
+                    <?php
+                    $fortune_list = array();
+                    $index = 0;
+                    if( have_rows('hero_fortune_list') ): while ( have_rows('hero_fortune_list') ) : the_row();
+                        $fortune_list[] = array(
+                            'title' => get_sub_field('title'),
+                            'option' => get_sub_field('select_option_title'),
+                            'value' => $index,
+                            'report_card' => get_sub_field('report_card')
+                        );
+                        $index++;
+                    endwhile; endif;
+                    ?>
                     <div class="home-hero-table-header">
-                        <h3 class="home-hero-table-title">Fortune 500 top 10</h3>
+                        <?php
+                        $index = 0;
+                        foreach($fortune_list as $fortune) {
+                            ?>
+                            <h3 class="home-hero-table-title home-hero-fortune-table-content" fortune-index="<?php echo $index?>"><?php echo $fortune['title']?></h3>
+                            <?php
+                            $index++;
+                        }
+                        ?>
+                        
                         <div class="home-hero-table-select">
-                            <select class="">
-                                <option class="">2020</option>
+                            <select class="" id="home_hero_fortune_select">
+                                <?php
+                                $index = 0;
+                                foreach($fortune_list as $fortune) {
+                                    ?>
+                                    <option class="" value="<?php echo $index?>"><?php echo $fortune['option']?></option>
+                                    <?php
+                                    $index++;
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>
-                    <div class="home-hero-table-body">
-                        <div class="home-hero-table-row">
-                            <div class="home-hero-table-col">1</div>
-                            <div class="home-hero-table-col">Walmart</div>
-                            <div class="home-hero-table-col">
-                                <span class="home-hero-table-mark home-hero-table-mark--red-outline">F</span>
+                    <?php
+                        $index = 0;
+                        foreach($fortune_list as $fortune) {
+                            ?>
+                            <div class="home-hero-fortune-table-content" fortune-index="<?php echo $index?>">
+                                <div class="home-hero-table-body">
+                                    <?php
+                                    $report_card_id = $fortune['report_card'];
+                                    $company_index = 1;
+                                    if( have_rows('companies', $report_card_id) ): while ( have_rows('companies', $report_card_id) ) : the_row();
+                                        ?>
+                                        <div class="home-hero-table-row">
+                                            <div class="home-hero-table-col"><?php echo $company_index?></div>
+                                            <div class="home-hero-table-col">
+                                                <?php
+                                                $company_id = get_sub_field('company');
+                                                echo get_the_title($company_id);
+                                                ?>
+                                            </div>
+                                            <div class="home-hero-table-col col-agreement_grade">
+                                                <span class="home-hero-table-mark home-hero-table-mark--red-outline1 home-hero-table-mark--fill-green1"><?php echo get_field('agreement_grade', $company_id) ?></span>
+                                            </div>
+                                            <div class="home-hero-table-col col-forced_arbitration"><?php echo get_field('forced_arbitration', $company_id)?></div>
+                                        </div>
+                                        <?php                                    
+                                        if($company_index >= 10) {
+                                            break;
+                                        }
+                                        $company_index++;
+                                    endwhile; endif;
+                                    ?>
+                                </div>
+                                <div class="home-hero-table-footer">
+                                    <a class="home-hero-table-link" href="<?php echo get_permalink($report_card_id)?>">SEE FULL REPORT</a>
+                                </div>
                             </div>
-                            <div class="home-hero-table-col">Yes</div>
-                        </div>
-                        <div class="home-hero-table-row">
-                            <div class="home-hero-table-col">2</div>
-                            <div class="home-hero-table-col">Amazon</div>
-                            <div class="home-hero-table-col">
-                                <span class="home-hero-table-mark home-hero-table-mark--red-outline">F</span>
-                            </div>
-                            <div class="home-hero-table-col">Yes</div>
-                        </div>
-                        <div class="home-hero-table-row">
-                            <div class="home-hero-table-col">3</div>
-                            <div class="home-hero-table-col">Exxon Mobil</div>
-                            <div class="home-hero-table-col">
-                                <span class="home-hero-table-mark home-hero-table-mark--red-outline">D</span>
-                            </div>
-                            <div class="home-hero-table-col">Yes</div>
-                        </div>
-                        <div class="home-hero-table-row">
-                            <div class="home-hero-table-col">4</div>
-                            <div class="home-hero-table-col">Apple</div>
-                            <div class="home-hero-table-col">
-                                <span class="home-hero-table-mark home-hero-table-mark--fill-green">A</span>
-                            </div>
-                            <div class="home-hero-table-col"><strong>No</strong></div>
-                        </div>
-                        <div class="home-hero-table-row">
-                            <div class="home-hero-table-col">5</div>
-                            <div class="home-hero-table-col">CVS Health</div>
-                            <div class="home-hero-table-col">
-                                <span class="home-hero-table-mark home-hero-table-mark--red-outline">F</span>
-                            </div>
-                            <div class="home-hero-table-col">Yes</div>
-                        </div>
-                        <div class="home-hero-table-row">
-                            <div class="home-hero-table-col">6</div>
-                            <div class="home-hero-table-col">Berkshire Hathaway</div>
-                            <div class="home-hero-table-col">
-                                <span class="home-hero-table-mark home-hero-table-mark--red-outline">F</span>
-                            </div>
-                            <div class="home-hero-table-col">Yes</div>
-                        </div>
-                        <div class="home-hero-table-row">
-                            <div class="home-hero-table-col">7</div>
-                            <div class="home-hero-table-col">UnitedHealth Group</div>
-                            <div class="home-hero-table-col">
-                                <span class="home-hero-table-mark home-hero-table-mark--red-outline">F</span>
-                            </div>
-                            <div class="home-hero-table-col">Yes</div>
-                        </div>
-                        <div class="home-hero-table-row">
-                            <div class="home-hero-table-col">8</div>
-                            <div class="home-hero-table-col">McKesson</div>
-                            <div class="home-hero-table-col">
-                                <span class="home-hero-table-mark">A</span>
-                            </div>
-                            <div class="home-hero-table-col">No</div>
-                        </div>
-                        <div class="home-hero-table-row">
-                            <div class="home-hero-table-col">9</div>
-                            <div class="home-hero-table-col">AT&T</div>
-                            <div class="home-hero-table-col">
-                                <span class="home-hero-table-mark home-hero-table-mark--red-outline">F</span>
-                            </div>
-                            <div class="home-hero-table-col">Yes</div>
-                        </div>
-                        <div class="home-hero-table-row">
-                            <div class="home-hero-table-col">10</div>
-                            <div class="home-hero-table-col">AmerisourceBergen</div>
-                            <div class="home-hero-table-col">
-                                <span class="home-hero-table-mark">A</span>
-                            </div>
-                            <div class="home-hero-table-col">No</div>
-                        </div>
-                    </div>
-                    <div class="home-hero-table-footer">
-                        <a class="home-hero-table-link">SEE FULL REPORT</a>
-                    </div>
+                            <?php
+                            $index++;
+                        }
+                    ?>
                 </div>
             </div>
         </div>

@@ -6,40 +6,9 @@
 							<img class="footer-logo__img" src="<?php echo get_template_directory_uri()?>/library/images/logo-black.svg">
 						</div>
 						<div class="footer-menu-wrap">
-							<div class="footer-menu-col">
-								<h3 class="footer-menu-head">companies</h3>
-							</div>
-							<div class="footer-menu-col">
-								<h3 class="footer-menu-head">report cards</h3>
-								<div class="footer-menu-links">
-									<div class="footer-menu-link-wrap">
-										<a class="footer-menu-link">2020 Fortune 500</a>
-									</div>
-									<div class="footer-menu-link-wrap">
-										<a class="footer-menu-link">2019 Fortune 500</a>
-									</div>
-									<div class="footer-menu-link-wrap">
-										<a class="footer-menu-link">2018 Fortune 500</a>
-									</div>
-									<div class="footer-menu-link-wrap">
-										<a class="footer-menu-link">2017 Fortune 500</a>
-									</div>
-								</div>
-							</div>
-							<div class="footer-menu-col">
-								<h3 class="footer-menu-head">about us</h3>
-								<div class="footer-menu-links">
-									<div class="footer-menu-link-wrap">
-										<a class="footer-menu-link">FAQs</a>
-									</div>
-									<div class="footer-menu-link-wrap">
-										<a class="footer-menu-link">Grading Scale</a>
-									</div>
-								</div>
-							</div>
-							<div class="footer-menu-col">
-								<h3 class="footer-menu-head">contact us</h3>
-							</div>
+							<?php
+							primer_footer_links();
+							?>
 						</div>
 					</div>
 					<div class="footer-bottom">

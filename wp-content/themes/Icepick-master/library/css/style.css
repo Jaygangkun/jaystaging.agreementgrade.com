@@ -590,6 +590,10 @@ p a {
   border: 1px solid #ffffff;
 }
 
+.report-card-hero .home-hero-background {
+  background-image: url(../images/report-cards-bk-blue.png);
+}
+
 .home-header__logo-img {
   height: 80px;
 }
@@ -653,9 +657,14 @@ p a {
 
 .highlight {
   position: relative;
+  display: inline-block;
 }
 
-.highlight::after {
+.highlight span {
+  position: relative;
+}
+
+.highlight::before {
   position: absolute;
   content: '';
   left: 0px;
@@ -716,6 +725,7 @@ select {
 .home-hero-table-col {
   padding: 10px;
   font-size: 18px;
+  min-width: 50px;
 }
 
 .home-hero-table-col:nth-of-type(2) {
@@ -737,6 +747,7 @@ select {
   text-align: center;
   height: 24px;
   line-height: 23px;
+  text-transform: uppercase;
 }
 
 .home-hero-table-mark--red-outline {
@@ -862,6 +873,7 @@ select {
 .footer-top {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 50px;
 }
 
 .footer-menu-wrap {
@@ -963,6 +975,10 @@ select {
   text-transform: uppercase;
   padding: 10px 30px;
   font-family: 'Arial Black';
+}
+
+.text-yellow-badge:hover {
+  color: #000000;
 }
 
 .company-hero-badge-wrap {
@@ -1151,6 +1167,7 @@ select {
   border: 1px solid #000000;
   width: 380px;
   margin-right: 15px;
+  text-decoration: none;
 }
 
 .report-cards-wrap h3 {
@@ -1160,6 +1177,22 @@ select {
   line-height: 27px;
   letter-spacing: -0.2px;
   color: #000000;
+  position: relative;
+}
+
+.report-cards-wrap h3 span {
+  position: relative;
+}
+
+.report-cards-wrap:hover h3:before {
+  position: absolute;
+  content: '';
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 80%;
+  top: 10px;
+  background: #ffee86;
 }
 
 .report-cards-link {
@@ -1174,7 +1207,7 @@ select {
   display: inline-block;
 }
 
-.report-cards-link:hover {
+.report-cards-wrap:hover .report-cards-link {
   color: #4285F4;
   text-decoration: underline;
 }
@@ -1206,6 +1239,11 @@ select {
   cursor: pointer;
 }
 
+.report-card-accordian-filter-link.active {
+  background: #000000;
+  color: #ffffff;
+}
+
 .report-card-accordian-table-row {
   display: flex;
   justify-content: space-between;
@@ -1217,6 +1255,7 @@ select {
 
 .report-card-accordian-table-head {
   font-family: 'Arial Regular';
+  border-bottom: 1px solid #979797;
 }
 
 .report-card-accordian-table-head .report-card-accordian-table-row {
@@ -1238,7 +1277,7 @@ select {
 }
 
 .report-card-accordian-table-col:nth-of-type(1){
-  width: 10%;
+  width: 15%;
 }
 
 .report-card-accordian-table-col:nth-of-type(2){
@@ -1447,3 +1486,105 @@ select {
   background: #FF7D7E
 }
 
+.col-agreement_grade {
+  text-transform: uppercase;
+}
+
+.col-forced_arbitration {
+  text-transform: capitalize;
+}
+
+.col-sortable {
+  cursor: pointer;
+}
+
+.fa-caret-up {
+  display: none;
+}
+
+.fa-caret-down {
+  display: none;
+}
+
+[sort-direction="asc"] .fa-caret-up {
+  display: none;
+}
+
+[sort-direction="asc"] .fa-caret-down {
+  display: inline-block;
+}
+
+[sort-direction="desc"] .fa-caret-up {
+  display: inline-block;
+}
+
+[sort-direction="desc"] .fa-caret-down {
+  display: none;
+}
+
+.link-btn {
+  text-decoration: none;
+}
+
+.link-btn:hover {
+  text-decoration: none;
+}
+
+.report-card-accordian-table a {
+  color: #757575;
+  text-decoration: none;
+}
+
+.report-card-accordian-table a:hover {
+  color: #757575;
+  text-decoration: none;
+}
+
+.footer-menu-wrap #menu-footer-menu .menu-item a{
+  color: #000000;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.28px;
+  line-height: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid #000000;
+  display: inline-block;
+  width: 100%;
+  border-right: 0px;
+}
+
+.footer-menu-wrap #menu-footer-menu .menu-item:last-of-type a {
+  border-right: 1px solid #000000;
+}
+
+.footer-menu-wrap #menu-footer-menu .menu-item .sub-menu a {
+  color: #000000;
+  font-family: Courier;
+  font-size: 14px;
+  letter-spacing: 0.28px;
+  line-height: 16px;
+  text-decoration: none;
+  text-transform: initial;
+  padding: 10px;
+  display: inline-block;
+  border-top: 0px;
+  border-right: 1px solid #000000;
+  border-left: 0px;
+}
+
+.footer-menu-wrap #menu-footer-menu .menu-item:nth-of-type(2) .sub-menu a {
+  border-left: 1px solid #000000;
+}
+
+.footer-menu-wrap #menu-footer-menu .menu-item .sub-menu {
+  list-style: none;
+  padding-left: 0px;
+  margin-top: 0px;
+}
+
+.footer-menu-wrap #menu-footer-menu {
+  margin-top: 0px;
+}

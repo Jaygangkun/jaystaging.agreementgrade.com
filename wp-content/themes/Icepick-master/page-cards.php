@@ -34,11 +34,18 @@ get_header('home');
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 mx-auto">
-                        <h1 class="color-white text-center">Report Cards</h1>
-                        <p class="color-white text-center">Every year we create a comprehensive report of the Fortune 500 Agreement Grades…</p>
-                        <div class="report-card-hero-badge-wrap">
-                            <span class="text-yellow-badge">NEW! 2020 Fortune 500 report card</span>
-                        </div>
+                        <h1 class="color-white text-center"><?php the_field('title')?></h1>
+                        <p class="color-white text-center"><?php the_field('description')?></p>
+                        <?php
+                        $link = get_field('link');
+                        if($link) {
+                            ?>
+                            <div class="report-card-hero-badge-wrap">
+                                <a class="link-btn text-yellow-badge" href="<?php echo $link['url']?>" target="<?php echo $link['target']?>"><?php echo $link['title']?></a>
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -47,32 +54,46 @@ get_header('home');
 </section>
 <section class="report-card-groups">
     <div class="container">
-        <div class="report-card-group">
-            <h2 class="report-card-group__title">Fortune 500</h2>
-            <div class="report-card-group-list">
-                <div class="report-cards-wrap">
-                    <h3 class="">Fortune 500: 2020 Report Card</h3>
-                    <a class="report-cards-link">See report card <i class="fa fa-arrow-right"></i></a>
-                </div>
-                <div class="report-cards-wrap">
-                    <h3 class="">Fortune 500: 2019 Report Card</h3>
-                    <a class="report-cards-link">See report card <i class="fa fa-arrow-right"></i></a>
+        <?php
+        $fortunes = get_terms([
+            'taxonomy' => 'fortune',
+            'hide_empty' => false,
+        ]);
+
+        foreach($fortunes as $fortune) {
+            ?>
+            <div class="report-card-group">
+                <h2 class="report-card-group__title"><?php echo $fortune->name ?></h2>
+                <div class="report-card-group-list">
+                <?php
+                $report_cards = get_posts(
+                    array(
+                        'posts_per_page' => -1,
+                        'post_type' => 'report_card',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'fortune',
+                                'field' => 'term_id',
+                                'terms' => $fortune->term_id,
+                            )
+                        )
+                    )
+                );
+
+                foreach($report_cards as $report_card) {
+                    ?>
+                    <a class="report-cards-wrap" href="<?php echo get_permalink($report_card->ID)?>">
+                        <h3 class=""><span><?php echo $report_card->title?></span></h3>
+                        <span class="report-cards-link" href="<?php echo get_permalink($report_card->ID)?>">See report card <i class="fa fa-arrow-right"></i></span>
+                    </a>
+                    <?php
+                }
+                ?>
                 </div>
             </div>
-        </div>
-        <div class="report-card-group">
-            <h2 class="report-card-group__title">Fortune 100</h2>
-            <div class="report-card-group-list">
-                <div class="report-cards-wrap">
-                    <h3 class="">Fortune 100: Best Companies to Work For 2019</h3>
-                    <a class="report-cards-link">See report card <i class="fa fa-arrow-right"></i></a>
-                </div>
-                <div class="report-cards-wrap">
-                    <h3 class="">Fortune 100: Best Companies to Work For 2018</h3>
-                    <a class="report-cards-link">See report card <i class="fa fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
+            <?php
+        }
+        ?>
     </div>
 </section>
 <?php

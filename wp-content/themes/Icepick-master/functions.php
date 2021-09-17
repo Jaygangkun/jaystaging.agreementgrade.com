@@ -149,4 +149,90 @@ if( function_exists('acf_add_options_page') ) {
 	
 }
 
+global $g_report_card_500_per_page;
+global $g_report_card_500_page_id;
+$g_report_card_500_per_page = 30;
+
+function loadReportCard() {
+	global $g_report_card_500_per_page;
+	$rank = 0;
+	$count = 0;
+	$pagination_index = (int)$_POST['pagination_index'];
+	$start_index = $pagination_index * $g_report_card_500_per_page;
+
+	$table_data = array();
+	$rank = 1;
+	if( have_rows('companies', $_POST['post_id']) ): while ( have_rows('companies', $_POST['post_id']) ) : the_row();
+		$company_id = get_sub_field('company');
+		$table_data[] = array(
+			'rank' => $rank,
+			'company_name' => get_the_title($company_id),
+			'agreement_grade' => get_field('agreement_grade', $company_id),
+			'forced_arbitration' => get_field('forced_arbitration', $company_id),
+			'ceo' => get_field('ceo', $company_id),
+			'glassdoor_rating' => get_field('glassdoor_rating', $company_id),
+			'link' => get_permalink($company_id)
+		);
+		$rank++;
+	endwhile; endif;
+
+	// sorting
+	function cmp($a, $b) {
+		if($_POST['sort_direction'] == 'desc') {
+			if($_POST['sort_field'] == 'rank') {
+				return $b[$_POST['sort_field']] > $a[$_POST['sort_field']];		
+			}
+			return strcmp($b[$_POST['sort_field']], $a[$_POST['sort_field']]);	
+		}
+		else {
+			if($_POST['sort_field'] == 'rank') {
+				return $a[$_POST['sort_field']] > $b[$_POST['sort_field']];		
+			}
+			return strcmp($a[$_POST['sort_field']], $b[$_POST['sort_field']]);
+		}
+		
+	}
+	
+	usort($table_data, "cmp");	
+
+	$index = 0;
+	foreach($table_data as $table) {
+		$index++;
+		if($index <= $start_index) {
+			continue;
+		}
+		?>
+		<div class="report-card-accordian-table-row">
+		
+			<div class="report-card-accordian-table-col">
+				<div class="report-card-accordian-table-col-content"><?php echo $table['rank'];?></div>
+			</div>
+			<div class="report-card-accordian-table-col">
+				<div class="report-card-accordian-table-col-content"><a href="<?php echo $table['link']?>"><?php echo $table['company_name']?></a></div>
+			</div>
+			<div class="report-card-accordian-table-col col-agreement_grade">
+				<div class="report-card-accordian-table-col-content"><?php echo $table['agreement_grade']?></div>
+			</div>
+			<div class="report-card-accordian-table-col col-forced_arbitration">
+				<div class="report-card-accordian-table-col-content"><?php echo $table['forced_arbitration']?></div>
+			</div>
+			<div class="report-card-accordian-table-col">
+				<div class="report-card-accordian-table-col-content"><?php echo $table['ceo']?></div>
+			</div>
+			<div class="report-card-accordian-table-col">
+				<div class="report-card-accordian-table-col-content"><?php echo $table['glassdoor_rating']?></div>
+			</div>
+		</div>
+		<?php
+		$count++;
+		if($count >= $g_report_card_500_per_page) {
+			break;
+		}
+	}
+	
+	exit;
+}
+
+add_action('wp_ajax_load_report_card', 'loadReportCard');
+add_action('wp_ajax_nopriv_load_report_card', 'loadReportCard');
 ?>

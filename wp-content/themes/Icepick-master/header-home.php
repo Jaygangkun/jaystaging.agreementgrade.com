@@ -48,7 +48,9 @@
 	            }
 	        </style>
 	    </noscript>
-
+		<script type="text/javascript">
+			var wp_admin_url = '<?php echo admin_url('admin-ajax.php')?>';
+		</script>
 	</head>
 
 	<body <?php body_class(); ?>>
