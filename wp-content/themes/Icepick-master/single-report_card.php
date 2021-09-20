@@ -44,11 +44,11 @@
     <div class="container">
         <div class="report-card-accordian-filter">
             <span class="report-card-accordian-filter-title">Filter by Agreement Grade:</span>
-            <span class="report-card-accordian-filter-link">A</span>
-            <span class="report-card-accordian-filter-link">B</span>
-            <span class="report-card-accordian-filter-link">C</span>
-            <span class="report-card-accordian-filter-link">D</span>
-            <span class="report-card-accordian-filter-link">F</span>
+            <span class="report-card-accordian-filter-link" data-grade="a">A</span>
+            <span class="report-card-accordian-filter-link" data-grade="b">B</span>
+            <span class="report-card-accordian-filter-link" data-grade="c">C</span>
+            <span class="report-card-accordian-filter-link" data-grade="d">D</span>
+            <span class="report-card-accordian-filter-link" data-grade="f">F</span>
         </div>
         <div class="report-card-accordian-table">
             <div class="report-card-accordian-table-head">

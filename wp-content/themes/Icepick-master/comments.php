@@ -19,7 +19,7 @@ The comments page for primer
 <!-- You can start editing here. -->
 
 <?php if ( have_comments() ) : ?>
-	<h3 id="comments" class="h2"><?php comments_number(__('<span>No</span> Responses', 'primertheme'), __('<span>One</span> Response', 'primertheme'), _n('<span>%</span> Response', '<span>%</span> Responses', get_comments_number(),'primertheme') );?> to &#8220;<?php the_title(); ?>&#8221;</h3>
+	<h3 id="comments" class="h2" style="display: none"><?php comments_number(__('<span>No</span> Responses', 'primertheme'), __('<span>One</span> Response', 'primertheme'), _n('<span>%</span> Response', '<span>%</span> Responses', get_comments_number(),'primertheme') );?> to &#8220;<?php the_title(); ?>&#8221;</h3>
 
 	<nav id="comment-nav">
 		<ul class="clearfix">
@@ -28,11 +28,11 @@ The comments page for primer
 	 	</ul>
 	</nav>
 	
-	<ol class="commentlist">
-		<?php wp_list_comments('type=comment&callback=primer_comments'); ?>
-	</ol>
+	<div class="commentlist">
+		<?php wp_list_comments('type=comment&callback=custom_primer_comments'); ?>
+	</div>
 	
-	<nav id="comment-nav">
+	<nav id="comment-nav" style="display: none">
 		<ul class="clearfix">
 	  		<li><?php previous_comments_link() ?></li>
 	  		<li><?php next_comments_link() ?></li>
@@ -56,7 +56,7 @@ The comments page for primer
 
 <?php if ( comments_open() ) : ?>
 
-<section id="respond" class="respond-form">
+<section id="respond" class="respond-form" style="display: none">
 
 	<h3 id="comment-form-title" class="h2"><?php comment_form_title( __('Leave a Reply', 'primertheme'), __('Leave a Reply to %s', 'primertheme' )); ?></h3>
 

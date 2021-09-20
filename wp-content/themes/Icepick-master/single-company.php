@@ -35,6 +35,12 @@
                         <h4 class="single-company-info-block__title">AG Sources</h4>
                         <div class="single-company-info-block-wrap"><?php the_field('ag_sources')?></div>
                     </div>
+                    <div class="single-company-info-block">
+                        <h4 class="single-company-info-block__title">COMMENTS</h4>
+                        <div class="single-company-info-block-wrap">
+                        <?php comments_template(); ?>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-4">
                     <?php
@@ -79,6 +85,36 @@
                                 }
                                 ?>
                             <?php endwhile; endif; ?>
+                        </div>
+                    </div>
+                    <div class="single-company-info-block">
+                        <h4 class="single-company-info-block__title">POST A COMMENT</h4>
+                        <div class="single-company-info-block-wrap single-commpay-post-wrap">
+                        <?php 
+                            $comments_args = array(
+                                // Change the title of send button 
+                                'label_submit' => __( 'Post', 'textdomain' ),
+                                'title_reply' => '',
+                                // Change the title of the reply section
+                                // 'title_reply' => __( 'Write a Reply or Comment', 'textdomain' ),
+                                'logged_in_as' => "",
+                                // Remove "Text or HTML to be displayed after the set of comment fields".
+                                'comment_notes_after' => '',
+                                // Redefine your own textarea (the comment body).
+                                'fields' => apply_filters( 'comment_form_default_fields', array(
+                                    'author' => '<input id="author" class="blog-form-input" placeholder="Full Name* " name="author" type="text" value="" size="30">',
+                                
+                                    'email' => '<input id="email" class="blog-form-input" placeholder="Email* " name="email" type="text" value="" size="30">',
+                                
+                                    'url' => '<input id="url" class="blog-form-input" placeholder="Website" name="url" type="text" value="" size="30" />'
+                                )),
+                                'comment_field' => '<textarea id="comment" name="comment" aria-required="true" placeholder="Comment"></textarea>',
+                                'comment_notes_before' => '',
+                                'comment_notes_after' => ''
+                            );
+                            comment_form( $comments_args );
+                            // comments_template();
+                            ?>
                         </div>
                     </div>
                 </div>

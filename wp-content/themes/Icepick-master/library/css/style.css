@@ -1588,3 +1588,63 @@ select {
 .footer-menu-wrap #menu-footer-menu {
   margin-top: 0px;
 }
+
+.single-commpay-post-wrap .comment-form-cookies-consent {
+  display: none;
+}
+
+.single-commpay-post-wrap input,
+.single-commpay-post-wrap textarea {
+  width: 100%;
+  border: 1px solid #979797;
+  padding: 10px 20px;
+  font-family: Arial;
+  font-size: 16px;
+  letter-spacing: 0.32px;
+  line-height: 22px;
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.single-commpay-post-wrap textarea {
+  height: 150px;
+  resize: none;
+}
+
+.single-commpay-post-wrap input[type="submit"] {
+  width: auto;
+  background-color: #454545;
+  padding: 10px 25px;
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.32px;
+  line-height: 18px;
+  text-align: center;
+  display: inline-block;
+  color: #ffffff;
+}
+
+.comment-row {
+  margin-bottom: 20px;
+}
+
+.comment-row__text {
+  color: #000000;
+  font-family: 'Courier Prime', monospace;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 28px;
+}
+
+.comment-row__text p {
+  margin-bottom: 5px;
+}
+
+.comment-row-info {
+  color: #757575;
+  font-family: Arial;
+  font-size: 12px;
+  letter-spacing: 0.24px;
+  line-height: 22px;
+}

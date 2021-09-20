@@ -197,6 +197,12 @@ function loadReportCard() {
 
 	$index = 0;
 	foreach($table_data as $table) {
+		if(isset($_POST['filter_grade']) && $_POST['filter_grade'] != '') {
+			if($table['agreement_grade'] != $_POST['filter_grade']) {
+				continue;
+			}
+		}
+
 		$index++;
 		if($index <= $start_index) {
 			continue;
@@ -235,4 +241,25 @@ function loadReportCard() {
 
 add_action('wp_ajax_load_report_card', 'loadReportCard');
 add_action('wp_ajax_nopriv_load_report_card', 'loadReportCard');
+
+function wpb_move_comment_field_to_bottom( $fields ) {
+	$comment_field = $fields['comment'];
+	unset( $fields['comment'] );
+	$fields['comment'] = $comment_field;
+	return $fields;
+}
+	 
+add_filter( 'comment_form_fields', 'wpb_move_comment_field_to_bottom' );
+
+function custom_primer_comments($comment, $args, $depth) {
+	$GLOBALS['comment'] = $comment; ?>
+	<div class="comment-row">
+		<div class="comment-row__text"><?php comment_text()?></div>
+		<div class="comment-row-info">
+			<span class="comment-row__user"><?php echo get_comment_author_link()?></span> • <span class="comment-row__date"><?php comment_time(__('F jS, Y', 'primertheme')); ?></span>
+		</div>
+	</div>
+ <?php
+}
+
 ?>
