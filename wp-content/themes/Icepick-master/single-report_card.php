@@ -20,8 +20,10 @@
                     <div class="header-menus">    
                         <?php primer_main_nav(); ?>
                         <div class="header-menu-search">
-                            <span class="">SEARCH</span>
-                            <i class="fa fa-search"></i>
+                            <form id="nav_search_form" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                                <input type="text" class="search-field" name="s" placeholder="SEARCH" value="<?php echo get_search_query(); ?>">
+                                <i class="fa fa-search" id="nav_search_btn"></i>
+                            </form>
                         </div>
                     </div>
                 </div>  

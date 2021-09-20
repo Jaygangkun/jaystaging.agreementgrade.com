@@ -133,4 +133,13 @@ jQuery(document).ready(function($) {
 		$('.home-hero-fortune-table-content').hide();
 		$('.home-hero-fortune-table-content[fortune-index="' + $(this).val() +'"]').show();
 	})
+
+	// search button on nav
+	$(document).on('click', '#nav_search_btn', function() {
+		$('#nav_search_form').submit();
+	})
+
+	$(document).on('click', '#home_search_btn', function() {
+		$('#home_search_form').submit();
+	})
 }); /* end of as page load scripts */

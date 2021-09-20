@@ -262,4 +262,16 @@ function custom_primer_comments($comment, $args, $depth) {
  <?php
 }
 
+function searchfilter($query) {
+    if ($query->is_search && !is_admin() ) {
+        if(isset($_GET['post_type'])) {
+            $type = $_GET['post_type'];
+                if($type == 'company') {
+                    $query->set('post_type',array('company'));
+                }
+        }       
+    }
+return $query;
+}
+add_filter('pre_get_posts','searchfilter');
 ?>

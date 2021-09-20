@@ -623,6 +623,30 @@ p a {
   color: #ffffff;
 }
 
+.header-menus .header-menu-search input {
+  background: transparent;
+  outline: none;
+  border: 0px;
+  color: #ffffff;
+  width: 100px;
+}
+
+.header-menus .header-menu-search input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ffffff;
+}
+
+.header-menus .header-menu-search input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #ffffff;
+}
+
+.header-menus .header-menu-search input::-ms-input-placeholder { /* Microsoft Edge */
+  color: #ffffff;
+}
+
+.header-menus .header-menu-search i {
+  cursor: pointer;
+}
+
 .home-header .header-menus .navbar-nav .nav-link {
   color: #ffffff;
   font-size: 16px;
@@ -1647,4 +1671,8 @@ select {
   font-size: 12px;
   letter-spacing: 0.24px;
   line-height: 22px;
+}
+
+.search-list {
+  margin-top: 50px;
 }
