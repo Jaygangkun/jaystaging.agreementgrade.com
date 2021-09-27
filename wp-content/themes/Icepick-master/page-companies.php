@@ -36,11 +36,18 @@ get_header('home');
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 mx-auto">
-                        <h1 class="color-white text-center">Company Grades</h1>
-                        <p class="color-white text-center">Research shows 88% of the Fortune 500 have mandatory arbitration clauses in their employment agreements. Curious about a company? Find out how fair their employee agreement is.</p>
-                        <div class="company-hero-badge-wrap">
-                            <span class="text-yellow-badge">NEW! 2020 Fortune 500 report card</span>
-                        </div>
+                        <h1 class="color-white text-center"><?php the_field('title')?></h1>
+                        <p class="color-white text-center"><?php the_field('description')?></p>
+                        <?php
+                        $link = get_field('link');
+                        if($link) {
+                            ?>
+                            <div class="company-hero-badge-wrap">
+                                <a class="text-yellow-badge" href="<?php echo $link['url']?>" target="<?php echo $link['target']?>"><?php echo $link['title']?></a>
+                            </div>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -51,7 +58,7 @@ get_header('home');
     <div class="container">
         <?php
         $alphas = range('A', 'Z');
-        $numbers = range('0', '9');
+        $numbers = range('#', '#');
         $indexes = array_merge($numbers, $alphas);
         ?>
         <style>
@@ -87,6 +94,8 @@ get_header('home');
             $link = get_permalink($company->ID);
 
             $first_letter = substr(strtoupper($title), 0, 1);
+            $first_letter = $first_letter >= '0' && $first_letter <= '9' ? '#' : $first_letter;
+
             if($prev_alpha != $first_letter) {
 
                 if($group_tag_start){

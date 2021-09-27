@@ -115,7 +115,7 @@ get_header('home');
                                                 ?>
                                             </div>
                                             <div class="home-hero-table-col col-agreement_grade">
-                                                <span class="home-hero-table-mark home-hero-table-mark--red-outline1 home-hero-table-mark--fill-green1"><?php echo get_field('agreement_grade', $company_id) ?></span>
+                                                <span class="home-hero-table-mark home-hero-table-mark-<?php echo get_field('agreement_grade', $company_id) ?> home-hero-table-mark--red-outline1 home-hero-table-mark--fill-green1"><?php echo get_field('agreement_grade', $company_id) ?></span>
                                             </div>
                                             <div class="home-hero-table-col col-forced_arbitration"><?php echo get_field('forced_arbitration', $company_id)?></div>
                                         </div>
@@ -140,44 +140,47 @@ get_header('home');
         </div>
     </div>
 </section>
-<section class="home-search">
-    <div class="container">
-        <div class="row d-flex align-items-center justify-content-between">
-            <div class="col-lg-7">
-                <h1 class="">Curious about a company?</h1>
-                <p><strong>Enter a company name and we will tell you how fair their employment agreement is:</strong></p>
-            </div>
-            <div class="col-lg-4">
-                <form id="home_search_form" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-                    <div class="form-group">
-                        <input type="text" name="s" placeholder="Enter company name" value="<?php echo get_search_query(); ?>">
-                        <span class="custom-btn custom-btn-blue" id="home_search_btn">search</span>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="home-do-it">
-    <div class="home-do-it-wrap">
-        <div class="container text-center">
-            <h2>Why We Do It</h2>
-            <p>Corporations are directly responsible for the mistreatment of their employee. We compel them to become part of the solution. We see a future where both employees and employers are empowered to be the best version of themselves every single day. The more people that are able to put their best foot forward, the brighter and safer our world will become.</p>
-            <div class="custom-btn-wrap text-center">
-                <a class="custom-btn custom-btn-blue">more about us</a>
+<div class="section-container-padding">
+    <section class="home-search">
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-between">
+                <div class="col-lg-7">
+                    <h1 class="">Curious about a company?</h1>
+                    <p><strong>Enter a company name and we will tell you how fair their employment agreement is:</strong></p>
+                </div>
+                <div class="col-lg-4">
+                    <form id="home_search_form" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                        <div class="form-group">
+                            <input type="text" name="s" placeholder="Enter company name" value="<?php echo get_search_query(); ?>">
+                            <span class="custom-btn custom-btn-blue" id="home_search_btn">search</span>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="home-do-it-wrap">
-        <div class="container text-center">
-            <h2>How We Do It</h2>
-            <p>We engage company leaders and strongly encourage theme to review and remove the predatory clauses within their standard employment agreement. Clauses such as; mandatory arbitration, backdoor NDA's, and unfair non-competes. Once the revised agreement meets our AGC requirements, the company will become publicly accredited by Agreement Grade, earning our stamp of approval</p>
-            <div class="custom-btn-wrap text-center">
-                <a class="custom-btn custom-btn-blue">cta tbd</a>
+    <section class="home-do-it">
+        <div class="home-do-it-wrap">
+            <div class="container text-center">
+                <h2>Why We Do It</h2>
+                <p>Corporations are directly responsible for the mistreatment of their employees. We compel them to become part of the solution. We see a future where both employees and employers are empowered to be the best version of themselves every single day. The more people that are able to put their best foot forward, the brighter and safer our world will become.</p>
+                <div class="custom-btn-wrap text-center">
+                    <a class="custom-btn custom-btn-blue" href="<?php echo get_permalink( get_page_by_path( 'about-us' ) )?>">more about us</a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+
+        <div class="home-do-it-wrap">
+            <div class="container text-center">
+                <h2>How We Do It</h2>
+                <p>We engage company leaders and strongly encourage them to review and remove the predatory clauses within their standard employment agreement. Clauses such as; mandatory arbitration, backdoor NDA's, and unfair non-competes. Once the revised agreement meets our AGC requirements, the company will become publicly accredited by Agreement Grade, earning our stamp of approval.</p>
+                <div class="custom-btn-wrap text-center">
+                    <a class="custom-btn custom-btn-blue" href="<?php echo get_permalink( get_page_by_path( 'grading-scale' ) )?>">cta tbd</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 <?php
 get_footer();

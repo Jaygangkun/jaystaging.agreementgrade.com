@@ -37,7 +37,7 @@ get_header('home');
                 <div class="row">
                     <div class="col-lg-9 mx-auto">
                         <h1 class="color-white text-center">Who We Are</h1>
-                        <p class="color-white text-center">Agreement Grade is the <span class="highlight">nations's leader</span> in employment agreement advocacy. We hold corporations responsible by creating a transparent, level playing field for ALL employees to be heard, prosper, and contribute to a brighter, safer future.</p>
+                        <p class="color-white text-center">Agreement Grade is the nations's leader in employment agreement advocacy. We hold corporations responsible by creating a transparent, level playing field for ALL employees to be heard, prosper, and contribute to a brighter, safer future.</p>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@ get_header('home');
         <h2 class="text-center">About Agreement Grade</h2>
         <p class="">Agreement Grade was created in order to provide transparency into the employee practices of the corporate world. In this era of culture driven business, companies must abandon their abuse of non-friendly employee agreements, or face the consequences.<br><br>
         Agreement Grade aims to help current and prospective employee’s gauge how fair a company treats employees when it comes to distasteful employee agreements. Many of which include forced arbitration clauses, requiring employees to waive their constitutional rights in disputes involving discrimination, sexual harassment, retaliation, abuse, unequal pay, unlawful termination, and many more.<br><br>
-        Did you sign an employee agreement requiring forced arbitration? This is an extremely common practice at all size companies, but especially the Fortune 500. Most employees aren’t aware they sign their rights away. In fact, 80% of the Fortune 100 has used forced arbitration in connection to work-related disputes since 2010! Source: <a class="">Employee Rights Advocacy Institute</a></p>
+        <strong>Did you sign an employee agreement requiring forced arbitration?</strong> <br><br>This is an extremely common practice at all size companies, but especially the Fortune 500. Most employees aren’t aware they sign their rights away. In fact, 80% of the Fortune 100 has used forced arbitration in connection to work-related disputes since 2010! Source: <a class="" href="http://employeerightsadvocacy.org/publications/widespread-use-of-workplace-arbitration/">Employee Rights Advocacy Institute</a></p>
     </div>
 </section>
 <section class="about-find-report">

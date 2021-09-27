@@ -782,6 +782,14 @@ select {
   background: #6CC798;
 }
 
+.home-hero-table-mark-f {
+  border: 1px solid #ff0000;
+}
+
+.home-hero-table-mark-a {
+  background: #6CC798;
+}
+
 .home-hero-table-title {
   text-transform: uppercase;
   margin: 0px;
@@ -798,16 +806,17 @@ select {
 
 .home-hero-table-link {
   text-decoration: none;
-  color: #70D0FF;
+  color: #ffffff;
   background: #1E9BFA;
   text-transform: uppercase;
   padding: 10px 50px;
   cursor: pointer;
+  display: inline-block;
 }
 
 .home-hero-table-link:hover {
   text-decoration: none;
-  color: #70D0FF;
+  color: #ffffff;
 }
 
 .home-hero-content {
@@ -999,6 +1008,7 @@ select {
   text-transform: uppercase;
   padding: 10px 30px;
   font-family: 'Arial Black';
+  text-decoration: none;
 }
 
 .text-yellow-badge:hover {
@@ -1068,6 +1078,7 @@ select {
 .company-link:hover {
    text-decoration: underline;
    color: #4285f4 !important;
+   font-weight: bold;
 }
 
 .companies-group {
@@ -1278,7 +1289,7 @@ select {
 }
 
 .report-card-accordian-table-head {
-  font-family: 'Arial Regular';
+  font-family: 'Arial';
   border-bottom: 1px solid #979797;
 }
 
@@ -1362,6 +1373,8 @@ select {
 
 .header .home-header .header-menus {
   border-top: 1px solid #ffffff;
+  margin-right: 30px;
+  border-right: 1px solid #ffffff;
 }
 
 .header .home-header {
@@ -1429,11 +1442,18 @@ select {
 }
 
 .single-company-info-block-wrap {
-  color: #4285F4;
   font-family: 'Courier Prime', monospace;
   font-size: 16px;
   letter-spacing: 0;
   line-height: 22px;
+}
+
+.single-company-info-block-wrap a {
+  color: #4285F4;
+}
+
+.single-company-info-block-wrap p {
+  color: black;
 }
 
 .single-company-logo-wrap {
@@ -1516,6 +1536,8 @@ select {
 
 .col-forced_arbitration {
   text-transform: capitalize;
+  width: 100px;
+  text-align: center;
 }
 
 .col-sortable {
@@ -1675,4 +1697,54 @@ select {
 
 .search-list {
   margin-top: 50px;
+}
+
+#home_hero_fortune_select {
+  padding: 5px 15px;
+  font-size: 24px;
+  background: transparent;
+  font-weight: bold;
+  color: #000000;
+  font-family: "Arial Black";
+  font-size: 18px;
+  letter-spacing: 0.36px;
+  line-height: 26px;
+  background-image: url(../images/dropdown-arrow.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 15px;
+  background-position-x: 70px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  padding-right: 30px;
+}
+
+#home_hero_fortune_select::-ms-expand {
+    display: none;
+}
+
+.section-container-padding {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.report-card-accordian-table-body .report-card-accordian-table-row .report-card-accordian-table-col {
+  color: #000000;
+}
+
+.report-card-accordian-table .report-card-accordian-table-body .report-card-accordian-table-row a {
+  color: #000000;
+}
+
+.report-card-accordian-table-body .report-card-accordian-table-row:hover .report-card-accordian-table-col {
+  font-weight: bold;
+}
+
+.report-card-accordian-table .report-card-accordian-table-body .report-card-accordian-table-row:hover a {
+  font-weight: bold;
+}
+
+.single-company-info-block__title-img {
+  width: 30px;
+  margin-right: 10px;
 }

@@ -13,7 +13,7 @@
 					</div>
 					<div class="footer-bottom">
 						<div class="footer-submit-wrap">
-							<p class="footer-submit-label">Sign up for our newsletter;</p>
+							<p class="footer-submit-label">Sign up for our newsletter:</p>
 							<div class="form-group">
 								<input type="email" placeholder="Enter email address">
 								<span class="custom-btn custom-btn-blue">submit</span>

@@ -54,7 +54,7 @@
                     }
                     ?>
                     <div class="single-company-info-block">
-                        <h4 class="single-company-info-block__title">Links</h4>
+                        <h4 class="single-company-info-block__title"><img class="single-company-info-block__title-img" src="<?php echo get_template_directory_uri()?>/library/images/icon-link.png">Links</h4>
                         <div class="single-company-info-block-wrap">
                             <?php if( have_rows('links') ): while ( have_rows('links') ) : the_row(); ?>
                                 <?php
@@ -70,7 +70,7 @@
                             <?php endwhile; endif; ?>
                         </div>
                     </div>
-                    <div class="single-company-info-block">
+                    <div class="single-company-info-block" style="display: none">
                         <h4 class="single-company-info-block__title">DOWNLOADABLE FILES</h4>
                         <div class="single-company-info-block-wrap">
                             <?php if( have_rows('downloadable_files') ): while ( have_rows('downloadable_files') ) : the_row(); ?>
